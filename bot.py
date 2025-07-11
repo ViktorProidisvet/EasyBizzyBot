@@ -72,10 +72,10 @@ def get_costumer_name(message):
 def get_costumer_phone(message):
     orders[message.chat.id]['phone'] = message.text.strip()
     bot.send_message(message.chat.id, "Введите адрес доставки:")
-    bot.register_next_step_handler(message, get_costumer_adress)
+    bot.register_next_step_handler(message, get_costumer_address)
 
-def get_costumer_adress(message):
-    orders[message.chat.id]['adress'] = message.text.strip()
+def get_costumer_address(message):
+    orders[message.chat.id]['address'] = message.text.strip()
 
     order = orders[message.chat.id]
     summary = (
