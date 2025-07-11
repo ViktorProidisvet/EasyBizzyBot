@@ -13,5 +13,16 @@ bot = telebot.TeleBot(BOT_TOKEN)
 def start_message(message):
     bot.send_message(message.chat.id, '🚀 Привет! Я EasyBizzyBot!')
 
+#Обработчик команды /help
+@bot.message_handler(commands=['help'])
+def help_message(message):
+    help_text = ( "Я - бот ассистент интернет-магазина.\n"
+                "Вот что я умею:\n"
+                "/start - Приветствие\n"
+                "/help - Показать это сообщение\n"
+                "/catalog - Показать список товаров\n"
+                  )
+    bot.send_message(message.chat.id, help_text)
+
 # Запуск бота
 bot.polling()
